@@ -1,0 +1,63 @@
+
+/////////////////////////////////////////////////////////////////////////////////
+#OpenGl 0.3.6
+
+improved terrain
+
+added system that generates terrain based on a heightmap
+added fog
+
+fixed bug where paralax displacement affected textures that schouldn't be affected
+
+/////////////////////////////////////////////////////////////////////////////////
+#OpenGl 0.3.5
+
+added flat terrain
+
+/////////////////////////////////////////////////////////////////////////////////
+#OpenGl 0.3.4
+
+added paralax displacement
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+#OpenGl 0.3.3
+
+improved mesh loading
+
+added tangent calculation
+added normal maping
+added new material "shiny" for shiny objects without predefined color
+added added bunch of new hight quality textures from: 
+https://www.filterforge.com/filters/category47-page1.html
+
+moved texture to a subfolder "./res/Testures/..."
+
+/////////////////////////////////////////////////////////////////////////////////
+
+#OpenGl 0.3.2
+
+added console
+added material
+added code reuse in shader (multiple shader objects of same type in one program)
+
+/////////////////////////////////////////////////////////////////////////////////
+
+#OpenGl 0.3.1
+
+added specular lightning
+
+fixed mouse movement
+fixed game crashing occuring when looking around
+fixed dirLight struct not being send to shader properly on some devices
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+#OpenGl 0.3
+
+added camera movement
+added camera rotation
+added point light
+added multiple lights
