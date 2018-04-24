@@ -126,10 +126,10 @@ void MOVE(Atom &atom, double l, double r, double t, double b) {
 }
 
 void defineState(int tab[11][11][5][5], Atom atom, double l, double b, double step_len_R, double step_len_P) {
-	int Rx = modf((atom.position.x + abs(l)) , &step_len_R);
-	int Ry = modf((atom.position.y + abs(b)), &step_len_R);
-	int Px = modf((atom.momentum.x + abs(l)), &step_len_P);
-	int Py = modf((atom.momentum.y + abs(b)), &step_len_P);
+	int Rx = (int) fmod((atom.position.x + abs(l)) , step_len_R);
+	int Ry = (int) fmod((atom.position.y + abs(b)), step_len_R);
+	int Px = (int) fmod((atom.momentum.x + abs(l)), step_len_P);
+	int Py = (int) fmod((atom.momentum.y + abs(b)), step_len_P);
 
 	tab[Rx][Ry][Px][Py]++;
 }
@@ -160,9 +160,9 @@ unsigned long long int productStates(int tab[11][11][5][5]) {
 	return outcome;
 }
 
-unsigned long long int factorial(int n)
+long double factorial(int n)
 {
-	return (unsigned long long int)(n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
+	return (long double)(n == 1 || n == 0) ? 1 : factorial(n - 1) * n;
 }
 
 
@@ -249,7 +249,7 @@ int main(int argc, char *argv[])
 
 
 	////INITIALIZING ATOMS SIMULATION
-	int N = 100;
+	int N = 50;
 	int states[11][11][5][5];
 
 	double time_now = 0;
@@ -301,7 +301,7 @@ int main(int argc, char *argv[])
 		long double en = count_entrophy(th_pb);
 
 		out.open("dane.txt", std::ios_base::out | std::ios_base::app);
-		out << time_now << "\t\t" << th_pb << "\n";
+		out << time_now << "\t\t" << en << "\n";
 		out.close();
 
         if(SDLGetIsCloseRequested())
