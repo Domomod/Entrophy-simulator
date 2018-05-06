@@ -61,8 +61,17 @@ bool Display::IsClosed()
     return m_isClosed;
 }
 
+void Display::Use() 
+{
+	SDL_GL_MakeCurrent(m_window, m_glContext);
+}
+
+void Display::Use(SDL_GLContext context)
+{
+	SDL_GL_MakeCurrent(m_window, context);
+}
+
 void Display::Update()
 {
-    SDL_GL_SwapWindow(m_window);
-
+	SDL_GL_SwapWindow(m_window);
 }

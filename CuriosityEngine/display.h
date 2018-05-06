@@ -14,6 +14,10 @@ public:
     void Close();
     bool IsClosed();
 
+	void Use();
+
+	void Use(SDL_GLContext context);
+
     //getters
     //TODO(user#1#): paste getters to cpp file
     inline int GetWindowWidth() const
@@ -40,6 +44,12 @@ public:
 
         return dm.h;
     }
+
+	SDL_GLContext getContext() { return m_glContext; }
+
+	void move(int x, int y) {
+		SDL_SetWindowPosition(m_window, x, y);
+	}
 
     virtual ~Display();
 protected:
